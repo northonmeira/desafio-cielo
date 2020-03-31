@@ -28,7 +28,6 @@ public class ExtratoUseCaseConverter {
             throw new RuntimeException();
 
         }
-
     }
 
     private List<LancamentoDTO> toListaLancamentos(List<ControleLancamento> controleLancamentos) {
