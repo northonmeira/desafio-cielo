@@ -15,12 +15,19 @@ public class ExtratoUseCaseConverter {
 
     public ExtratoResponse toResponse(Extrato extrato) {
 
-        return ExtratoResponse.builder()
-                .quantidadeLancamentos(extrato.getTotalControleLancamento().getQuantidadeLancamentos())
-                .quantidadeRemessas(extrato.getTotalControleLancamento().getQuantidadeRemessas())
-                .valorLancamentos(extrato.getTotalControleLancamento().getValorLancamentos())
-                .lancamentos(toListaLancamentos(extrato.getListaControleLancamento()))
-                .build();
+        if (Objects.nonNull(extrato)){
+            return ExtratoResponse.builder()
+                    .quantidadeLancamentos(extrato.getTotalControleLancamento().getQuantidadeLancamentos())
+                    .quantidadeRemessas(extrato.getTotalControleLancamento().getQuantidadeRemessas())
+                    .valorLancamentos(extrato.getTotalControleLancamento().getValorLancamentos())
+                    .lancamentos(toListaLancamentos(extrato.getListaControleLancamento()))
+                    .build();
+        }
+        else {
+
+            throw new RuntimeException();
+
+        }
 
     }
 
